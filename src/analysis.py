@@ -28,13 +28,13 @@ def question3a():
     # get the close reward, risking the cliff
     answerDiscount = 0.1
     answerNoise = 0
-    answerLivingReward = 0 
+    answerLivingReward = 0
     return answerDiscount, answerNoise, answerLivingReward
     # If not possible, return 'NOT POSSIBLE'
 
 def question3b():
     # get the close reward, avoiding the cliff
-    answerDiscount = 0.1   
+    answerDiscount = 0.1
     answerNoise = 0.1
     answerLivingReward = -1
     return answerDiscount, answerNoise, answerLivingReward
@@ -52,7 +52,7 @@ def question3d():
     # Prefer the distant exit (+10), avoiding the cliff (-10)
     answerDiscount = 0.9
     answerNoise = 0.1
-    answerLivingReward = 0 
+    answerLivingReward = 0
     return answerDiscount, answerNoise, answerLivingReward
     # If not possible, return 'NOT POSSIBLE'
 
@@ -67,7 +67,13 @@ def question3e():
 def question6():
     answerEpsilon = None
     answerLearningRate = None
-    return answerEpsilon, answerLearningRate
+    #return answerEpsilon, answerLearningRate
+
+    # as melhores situações parecem ser as em que o agente explora muito e aprende pouco, mas mesmo assim com um numero
+    # tao pequeno de episodios mesmo que o agente supere o desafio de ENCONTRAR o melhor estado ele não APRENDE o quao bom o estado é
+    # tampouco conseguiria 99% das vezes
+    
+    return 'NOT POSSIBLE'
     # If not possible, return 'NOT POSSIBLE'
 
 if __name__ == '__main__':
@@ -76,3 +82,4 @@ if __name__ == '__main__':
     for q in [q for q in dir(analysis) if q.startswith('question')]:
         response = getattr(analysis, q)()
         print('  Question %s:\t%s' % (q, str(response)))
+
